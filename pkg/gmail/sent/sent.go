@@ -30,43 +30,43 @@ func GetDateFromMap(m map[string]string) (time.Time, time.Duration, string, erro
 
 func GetSnippetFromMap(m map[string]string) (string, error) {
 	if snippet, ok := m["Snippet"]; ok {
-		return snippet,nil
+		return snippet, nil
 	}
-	return "",errors.New("Snippet not found")
+	return "", errors.New("Snippet not found")
 }
 
 func GetTo(m map[string]string) (string, error) {
 	if to, ok := m["To"]; ok {
-		return to,nil
+		return to, nil
 	}
 	if to, ok := m["TO"]; ok {
-		return to,nil
+		return to, nil
 	}
-	return "",errors.New("To not found")
+	return "", errors.New("To not found")
 }
 
 func GetMsgId(m map[string]string) (string, error) {
 	if v, ok := m["Message-Id"]; ok {
-		return v,nil
+		return v, nil
 	}
 	if v, ok := m["Message-ID"]; ok {
-		return v,nil
+		return v, nil
 	}
-	return "",errors.New("Message-id not found")
+	return "", errors.New("Message-id not found")
 }
 
 func GetSubject(m map[string]string) (string, error) {
 	if v, ok := m["Subject"]; ok {
-		return v,nil
+		return v, nil
 	}
-	return "",errors.New("Subject not found")
+	return "", errors.New("Subject not found")
 }
 
 func GetAImsgField(m map[string]string) (string, error) {
 	if v, ok := m["AI-Msg-Field"]; ok {
-		return v,nil
+		return v, nil
 	}
-	return "",errors.New("AI-Msg-Field")
+	return "", errors.New("AI-Msg-Field")
 }
 
 // SENT
@@ -78,30 +78,29 @@ func Msg(label string) {
 			continue
 		}
 
-		snippet,err := GetSnippetFromMap(m)
+		snippet, err := GetSnippetFromMap(m)
 		if err != nil {
 			continue
 		}
-		subject,err := GetSubject(m)
+		subject, err := GetSubject(m)
 		if err != nil {
 			continue
 		}
-		to,err := GetTo(m)
+		to, err := GetTo(m)
 		if err != nil {
 			continue
 		}
-		msgId,err := GetMsgId(m)
+		msgId, err := GetMsgId(m)
 		if err != nil {
 			continue
 		}
-		msgAI,_ := GetAImsgField(m)
+		msgAI, _ := GetAImsgField(m)
 
 		if len(snippet) > 50 {
-			fmt.Println(sdate,",",to,msgAI,subject, snippet[0:50],msgId[0:10])
+			fmt.Println(sdate, ",", to, msgAI, subject, snippet[0:50], msgId[0:10])
 		} else {
 			fmt.Println(sdate, ",", to, msgAI, subject, snippet, msgId[0:10])
 		}
-
 
 	}
 }

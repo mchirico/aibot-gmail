@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/mchirico/aibot-gmail/pkg/gmail"
+	"github.com/mchirico/aibot-gmail/pkg/gmail/headertrack"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -59,6 +60,10 @@ type PubSubMessage struct {
 	Subscription string `json:"subscription"`
 }
 
+/*
+Subscript gets called from PubSub. The PUBSUBTOKEN must
+match.
+*/
 func Subscript(w http.ResponseWriter, r *http.Request) {
 
 	key := fmt.Sprintf("%s", r.FormValue("key"))
@@ -83,8 +88,9 @@ func Subscript(w http.ResponseWriter, r *http.Request) {
 		}
 
 		data := string(m.Message.Data)
-		log.Printf("Running %s!",data)
-		gmail.SendReply()
+		log.Printf("Running %s!", data)
+		sm := headertrack.NewSM()
+		gmail.SendReply(sm)
 
 	}
 

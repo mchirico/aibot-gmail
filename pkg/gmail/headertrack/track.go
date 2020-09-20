@@ -2,6 +2,7 @@ package headertrack
 
 import (
 	"fmt"
+	"github.com/mchirico/go-gmail/mail/messages"
 )
 
 type Details struct {
@@ -73,4 +74,25 @@ func (s *SM) Found(headers map[string]string) bool {
 	s.SentMail[idx] = *details
 	return false
 
+}
+
+func (s *SM) GetR() ([]map[string]string, error) {
+	r, err := messages.GetNewMessages("TRASH", 1)
+	if err != nil {
+		return []map[string]string{}, err
+	}
+	id := 0
+	fmt.Println("Subject:", r[id]["Subject"])
+	fmt.Println("MessageID:", r[id]["Message-ID"])
+	fmt.Println(r[id]["Return-Path"])
+	fmt.Println(r[id]["From"])
+	fmt.Println(r[id]["Snippet"])
+	fmt.Println("--->", r[id]["Id"])
+
+	//if HT.Found(r[id]) {
+	//	fmt.Printf("\n\nAborted: Found\n\n")
+	//	return r, errors.New("Id previously used")
+	//}
+
+	return r, nil
 }
