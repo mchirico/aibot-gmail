@@ -13,3 +13,9 @@ func TestSM_Found(t *testing.T) {
 	r, err := ht.GetR()
 	fmt.Println(r, err)
 }
+
+func TestSM_GetR(t *testing.T) {
+	ht := SM{}
+	r, err := ht.GetR()
+	fmt.Println(r, err)
+}

@@ -76,8 +76,20 @@ func (s *SM) Found(headers map[string]string) bool {
 
 }
 
-func (s *SM) GetR() ([]map[string]string, error) {
-	r, err := messages.GetNewMessages("TRASH", 1)
+type LabelCount struct {
+	count int
+	label string
+}
+
+func (s *SM) GetR(labelCT ...LabelCount) ([]map[string]string, error) {
+	label := "TRASH"
+	maxCount := 1
+
+	if len(labelCT) != 0 {
+		label = labelCT[0].label
+		maxCount = labelCT[0].count
+	}
+	r, err := messages.GetNewMessages(label, maxCount)
 	if err != nil {
 		return []map[string]string{}, err
 	}
@@ -88,11 +100,6 @@ func (s *SM) GetR() ([]map[string]string, error) {
 	fmt.Println(r[id]["From"])
 	fmt.Println(r[id]["Snippet"])
 	fmt.Println("--->", r[id]["Id"])
-
-	//if HT.Found(r[id]) {
-	//	fmt.Printf("\n\nAborted: Found\n\n")
-	//	return r, errors.New("Id previously used")
-	//}
 
 	return r, nil
 }
