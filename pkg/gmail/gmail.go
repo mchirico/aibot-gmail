@@ -111,8 +111,14 @@ func RejectImmediate(from, snippet string) error {
 	f := strings.ToLower(from)
 	s := strings.ToLower(snippet)
 
-	rejectFrom := []string{"postmaster", "alert", "reply", "human"}
-	rejectText := []string{"w2", "n.j."}
+	rejectFrom := []string{"postmaster", "alert",
+		"reply", "human", "praveen", "karthik", "Reyansh", "indeedmail",
+		"@mail", "@talent",
+	}
+	rejectText := []string{"w2", "n.j.", "mohammad",
+		"impressed by the breath of your",
+		"application has been submitted!", "glassdoor",
+		"submitted on indeed"}
 
 	for _, v := range rejectFrom {
 		if strings.Contains(f, v) {
