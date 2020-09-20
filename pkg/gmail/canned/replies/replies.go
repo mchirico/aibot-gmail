@@ -89,8 +89,11 @@ Hourly rate between $105/hr to $117/hr.
 
 Please be sure to include your mobile phone number, where you can be
 reached by text. A mobile phone is necessary for receiving emails in
-confidential mode.  Plus, include your LinkedIn account, and I'll
-send you a text message.
+confidential mode.  
+
+Also, please include your LinkedIn account. This way, I have background
+on you and your company, so that we can both move towards a possible
+contract agreement, which is the only purpose of these emails.
 
 
 
@@ -101,9 +104,10 @@ mc@cwxstat.com
 (215) 326-9389 (text only)
 https://www.linkedin.com/in/mikechirico
 
-1) Please be sure to include you LinkedIn account
+1) Please be sure to include your LinkedIn account
+2) Please include mobile number (text for security code)
 
-`,`--000000000000eaa62105aeea3888
+`, `--000000000000eaa62105aeea3888
 Content-Type: text/plain; charset="UTF-8"
 
 For future reference: I'm only open to a corp-to-corp contract, with my

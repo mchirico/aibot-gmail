@@ -128,6 +128,20 @@ func RejectImmediate(from, snippet string) error {
 	return nil
 }
 
+func CheckDups(s string, sarray []interface{}) (int64, error) {
+	var count int64
+	for _, v := range sarray {
+		if s == v.(string) {
+			count += 1
+		}
+	}
+
+	if count > 0 {
+		return count, errors.New("Duplicate")
+	}
+	return count, nil
+}
+
 func EmailCount(from, snippet string) (int64, error) {
 
 	err := RejectImmediate(from, snippet)
@@ -155,6 +169,11 @@ func EmailCount(from, snippet string) (int64, error) {
 		sarray = v.([]interface{})
 	}
 
+	checkDups, err := CheckDups(snippet, sarray)
+	if err != nil {
+		return checkDups, err
+	}
+
 	doc := make(map[string]interface{})
 	doc[from] = 1 + count
 	doc["timeStamp"] = time.Now()
@@ -178,29 +197,6 @@ func StartWatch() (time.Time, error) {
 
 }
 
-var HT = headertrack.NewSM()
-
-func GetR() ([]map[string]string, error) {
-	r, err := messages.GetNewMessages("TRASH", 1)
-	if err != nil {
-		return []map[string]string{}, err
-	}
-	id := 0
-	fmt.Println("Subject:", r[id]["Subject"])
-	fmt.Println("MessageID:", r[id]["Message-ID"])
-	fmt.Println(r[id]["Return-Path"])
-	fmt.Println(r[id]["From"])
-	fmt.Println(r[id]["Snippet"])
-	fmt.Println("--->", r[id]["Id"])
-
-	if HT.Found(r[id]) {
-		fmt.Printf("\n\nAborted: Found\n\n")
-		return r, errors.New("Id previously used")
-	}
-
-	return r, nil
-}
-
 func EmailEnough(r []map[string]string) bool {
 	count, err := EmailCount(r[0]["From"], r[0]["Snippet"])
 	if err != nil {
@@ -217,8 +213,12 @@ func PostEmailEnough(r []map[string]string) {
 	log.Println("PostEmailEnough")
 }
 
-func SendReply() {
-	r, err := GetR()
+type SR interface {
+	GetR() ([]map[string]string, error)
+}
+
+func SendReply(sr SR) {
+	r, err := sr.GetR()
 	if err != nil {
 		return
 	}
@@ -279,6 +279,7 @@ var COUNT int64 = 0
 
 func RunEmail() {
 
+	ht := headertrack.NewSM()
 	g := pubsub.NewG()
 	var buf bytes.Buffer
 	m := map[int]bool{}
@@ -301,7 +302,7 @@ func RunEmail() {
 		if _, ok := m[pub.HistoryId]; !ok {
 			m[pub.HistoryId] = true
 			fmt.Printf("Digest: %d\n", pub.HistoryId)
-			SendReply()
+			SendReply(ht)
 		} else {
 			fmt.Printf("Skipped: %d\n", pub.HistoryId)
 		}

@@ -66,7 +66,7 @@ func Test_RootPOST(t *testing.T) {
 
 func Test_SubScribe(t *testing.T) {
 
-	os.Setenv("PUBSUBTOKEN","1a3a")
+	os.Setenv("PUBSUBTOKEN", "1a3a")
 	token := os.Getenv("PUBSUBTOKEN")
 
 	req := httptest.NewRequest("GET", "/subscript?key="+token, nil)
@@ -76,11 +76,9 @@ func Test_SubScribe(t *testing.T) {
 	resp := w.Result()
 	body, _ := ioutil.ReadAll(resp.Body)
 
-
 	fmt.Println(resp.StatusCode)
 	fmt.Println(resp.Header.Get("Content-Type"))
 	fmt.Println(string(body))
-
 
 	if !strings.Contains(string(body), "bad key") {
 		t.Fatalf("GET on SubScript failed")

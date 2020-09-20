@@ -2,6 +2,7 @@ package gmail
 
 import (
 	"fmt"
+	"github.com/mchirico/aibot-gmail/pkg/gmail/headertrack"
 	"github.com/mchirico/date/parse"
 	_ "github.com/mchirico/date/parse"
 	"github.com/mchirico/go-gmail/mail/messages"
@@ -23,12 +24,12 @@ func TestStopWatch(t *testing.T) {
 }
 
 func TestReject(t *testing.T) {
-	err := RejectImmediate("postmaster","a")
+	err := RejectImmediate("postmaster", "a")
 	if err == nil {
 		t.Fatal()
 	}
 
-	err = RejectImmediate("mchirico@gmail.com","a")
+	err = RejectImmediate("mchirico@gmail.com", "a")
 	if err != nil {
 		t.Fatal()
 	}
@@ -40,7 +41,7 @@ func TestFb(t *testing.T) {
 }
 
 func TestEmailCountFB(t *testing.T) {
-	count, _ := EmailCount("garbo3", "snippet")
+	count, _ := EmailCount("garbo3", "snippet2")
 	if count <= 0 {
 		t.Fatalf("Fail")
 	}
@@ -59,7 +60,8 @@ func TestRunEmail(t *testing.T) {
 }
 
 func TestSendReply(t *testing.T) {
-	SendReply()
+	ht := headertrack.NewSM()
+	SendReply(ht)
 }
 
 func TestMessages(t *testing.T) {
