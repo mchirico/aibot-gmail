@@ -33,10 +33,10 @@ func g() []string {
 Please confirm the position is 100% remote, and can 
 work on a corp-to-corp contract. Please confirm this.
 
-Current Hourly Rate: $105/hr 
+Current Hourly Rate: $109/hr 
 
 What's the hourly rate for this position? If it is
-below $105/hr, I'll have to pass on it.
+below $109/hr, I'll have to pass on it.
 
 Please include your LinkedIn account. I'll attach a
 more detailed work history, via LinkedIn messaging, if
@@ -48,6 +48,9 @@ Please don't forget to include your LinkedIn account,
 as we've never met, and I'd like to confirm who
 you are.
 
+It is not my intention to come off as rude with this 
+direct approach.  I'm doing this out of respect for
+your time, and my time.    
 
 
 Regards,
@@ -68,7 +71,7 @@ confirm that.
 Do you have a mobile number, where I can reach you? Sorry,
 but I'm not convinced you're a real person.
 
-Current Hourly Rate: $105/hr 
+Current Hourly Rate: $109/hr 
 
 What's the hourly rate for this position?
 
@@ -85,7 +88,7 @@ company CWXSTAT INC.
 
 Remote contract work ONLY.
 
-Hourly rate between $105/hr to $117/hr.
+Hourly rate between $115/hr to $130/hr.
 
 Please be sure to include your mobile phone number, where you can be
 reached by text. A mobile phone is necessary for receiving emails in
@@ -115,7 +118,7 @@ company CWXSTAT INC.
 
 Remote contract work ONLY.
 
-Hourly rate between 98/hr to 117/hr.
+Hourly rate between 150/hr to 170/hr.
 
 Please be sure to include your mobile phone number, where you can be
 reached by text. A mobile phone is necessary for receiving emails in
@@ -132,7 +135,7 @@ Content-Type: text/html; charset="UTF-8"
 
 <div dir="ltr"><p>For future reference: I&#39;m only open to a corp-to-corp contract, with my company CWXSTAT INC.  </p>
 <p>Remote contract work ONLY.  </p>
-<p>Hourly rate between 98/hr to 117/hr.</p>
+<p>Hourly rate between 150/hr to 170/hr.</p>
 <p>Please be sure to include your mobile phone number, where you can be reached by text. A mobile phone is necessary for receiving emails in confidential mode.</p>
 <p>Regards,</p>
 <p>Mike Chirico<br><a href="mailto:mc@cwxstat.com">mc@cwxstat.com</a><br>(215) 326-9389 (text only)</p></div>
