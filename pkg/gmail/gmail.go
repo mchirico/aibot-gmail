@@ -112,13 +112,18 @@ func RejectImmediate(from, snippet string) error {
 	s := strings.ToLower(snippet)
 
 	rejectFrom := []string{"postmaster", "alert",
-		"reply", "human", "praveen", "karthik", "Reyansh", "indeedmail",
-		"@mail", "@talent",
+		"reply", "human", "praveen", "karthik", "reyansh", "indeedmail",
+		"@mail", "@talent", ".net", "notification", "alert", "mailer",
+		"marketing", "career", "talent", "messages.jobs", "notification",
+		"kelleyservices", "employment", "feedback", "notice", "talent",
+		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9",
 	}
 	rejectText := []string{"w2", "n.j.", "mohammad",
 		"impressed by the breath of your",
 		"application has been submitted!", "glassdoor",
-		"submitted on indeed"}
+		"submitted on indeed", "we received your application",
+		"thank you for applying for the role", "searching for your dream job",
+		"cear candidate"}
 
 	for _, v := range rejectFrom {
 		if strings.Contains(f, v) {
@@ -220,7 +225,7 @@ func PostEmailEnough(r []map[string]string) {
 }
 
 type SR interface {
-	GetR() ([]map[string]string, error)
+	GetR(s ...headertrack.LabelCount) ([]map[string]string, error)
 }
 
 func SendReply(sr SR) {
