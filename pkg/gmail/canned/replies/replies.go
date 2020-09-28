@@ -50,7 +50,9 @@ you are.
 
 It is not my intention to come off as rude with this 
 direct approach.  I'm doing this out of respect for
-your time, and my time.    
+your time, and my time. Please understand, I've had 
+recruiters submit my resume to companies without 
+my knowledge.  
 
 
 Regards,

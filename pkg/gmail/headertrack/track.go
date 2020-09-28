@@ -77,8 +77,8 @@ func (s *SM) Found(headers map[string]string) bool {
 }
 
 type LabelCount struct {
-	count int
-	label string
+	Count int
+	Label string
 }
 
 func (s *SM) GetR(labelCT ...LabelCount) ([]map[string]string, error) {
@@ -86,20 +86,20 @@ func (s *SM) GetR(labelCT ...LabelCount) ([]map[string]string, error) {
 	maxCount := 1
 
 	if len(labelCT) != 0 {
-		label = labelCT[0].label
-		maxCount = labelCT[0].count
+		label = labelCT[0].Label
+		maxCount = labelCT[0].Count
 	}
 	r, err := messages.GetNewMessages(label, maxCount)
 	if err != nil {
 		return []map[string]string{}, err
 	}
-	id := 0
-	fmt.Println("Subject:", r[id]["Subject"])
-	fmt.Println("MessageID:", r[id]["Message-ID"])
-	fmt.Println(r[id]["Return-Path"])
-	fmt.Println(r[id]["From"])
-	fmt.Println(r[id]["Snippet"])
-	fmt.Println("--->", r[id]["Id"])
+	//id := 0
+	//fmt.Println("Subject:", r[id]["Subject"])
+	//fmt.Println("MessageID:", r[id]["Message-ID"])
+	//fmt.Println(r[id]["Return-Path"])
+	//fmt.Println(r[id]["From"])
+	//fmt.Println(r[id]["Snippet"])
+	//fmt.Println("--->", r[id]["Id"])
 
 	return r, nil
 }
