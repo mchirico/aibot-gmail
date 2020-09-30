@@ -117,7 +117,8 @@ func RejectImmediate(from, snippet string) error {
 		"marketing", "career", "talent", "messages.jobs", "notification",
 		"kelleyservices", "employment", "feedback", "notice", "talent",
 		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9", ".it",
-		"mohammed", ".ru", "::::", "consulting",
+		"mohammed", ".ru", "::::", "consulting", "bounce", "marketing",
+		"solutions.com", ".it",
 	}
 	rejectText := []string{"w2", "n.j.", "mohammad",
 		"impressed by the breath of your",
@@ -126,8 +127,8 @@ func RejectImmediate(from, snippet string) error {
 		"thank you for applying for the role", "searching for your dream job",
 		"dear candidate", "my client is actively looking",
 		"due to our end client, candidates", "houston", "texas",
-		"Huxley Associates", "Unfortunately", "thank you so much",
-		"reason you are seeking a new opportunity"}
+		"huxley associates", "Unfortunately", "thank you so much",
+		"reason you are seeking a new opportunity", "employers are noticing you"}
 
 	for _, v := range rejectFrom {
 		if strings.Contains(f, v) {
