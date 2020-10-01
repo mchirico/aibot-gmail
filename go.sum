@@ -217,6 +217,7 @@ github.com/mchirico/go-pubsub v0.0.0-20200907144028-51b00e662f5b/go.mod h1:DSLmi
 github.com/mchirico/go-pubsub v0.0.2 h1:7Gho2n8+fM+PxOPjDx6VsPkHQgXIVklIj9j1VG6tbPg=
 github.com/mchirico/go-pubsub v0.0.2/go.mod h1:DSLmi/h1+jgv7intDMJuSmG9Dz6bFADHTuD/bnLQGdM=
 github.com/mchirico/mpubsub v0.0.0-20200617221909-b4962314a3fa/go.mod h1:Zi14vbEHfZoxt08xSuo7/S+GYboVuDUoRYSa4i+kqqE=
+github.com/mchirico/proj v0.0.0-20200830013947-472359e5590e/go.mod h1:LZETcZbQMREP3+Q0mbUF9WEsOOOZTSoWvQaGl+SGC14=
 github.com/miekg/dns v1.0.14/go.mod h1:W1PPwlIAgtquWBMBEV9nkV9Cazfe8ScdGz/Lj7v3Nrg=
 github.com/mitchellh/cli v1.0.0/go.mod h1:hNIlj7HEI86fIcpObd7a0FcrxTWetlwJDGcceTlRvqc=
 github.com/mitchellh/go-homedir v1.0.0/go.mod h1:SfyaCUpYCn1Vlf4IUYiD9fPX4A5wJrkLzIz1N1q0pr0=

@@ -50,9 +50,9 @@ you are.
 
 It is not my intention to come off as rude with this 
 direct approach.  I'm doing this out of respect for
-your time, and my time. Please understand, I've had 
-recruiters submit my resume to companies without 
-my knowledge.  
+your time and my time. Reaching an agreement, signing 
+a contract, and coordinating work to solve your particular
+requirement(s), is the only purpose of these communications.
 
 
 Regards,
@@ -86,20 +86,34 @@ mc@cwxstat.com
 `, `
 
 For future reference: I'm only open to a corp-to-corp contract, with my
-company CWXSTAT INC.
+company CWXSTAT INC.  
 
 Remote contract work ONLY.
 
-Hourly rate between $115/hr to $130/hr.
+Reaching an agreement, signing a contract, and coordinating work through
+CWXSTAT is the only purpose of these communications.  
 
-Please be sure to include your mobile phone number, where you can be
-reached by text. A mobile phone is necessary for receiving emails in
-confidential mode.  
+Average contract hourly rate is between $115/hr to $130/hr, payable in
+15 days.
 
-Also, please include your LinkedIn account. This way, I have background
-on you and your company, so that we can both move towards a possible
-contract agreement, which is the only purpose of these emails.
+Video calls are preferred over just voice (Slack, Zoom, Skype etc.) so
+that diagrams can be shared, and technical ideas can be discussed. 
+Video calls may be recorded, archived, or processed with Machine Learning
+tools.
 
+It is very important that you have direct knowledge of the position/work
+and requirements. If you are not the direct hiring manager, you or the
+party you represent, must have a verifiable contract with the hiring manager. 
+
+Under no circumstance may any information about CWXSTAT, or myself be
+represented, in any way, without specific prior written approval from me. 
+
+You are agreeing that you have a full understanding of the work needed,
+plus any and all terms used in the Job Description, or any communication
+about the work needed has been verified by you, and you stand by your work.
+
+Specifically, you have verified this position is currently open to a C2C
+contract.  
 
 
 Regards,
