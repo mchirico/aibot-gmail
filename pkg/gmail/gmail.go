@@ -112,13 +112,14 @@ func RejectImmediate(from, snippet string) error {
 	s := strings.ToLower(snippet)
 
 	rejectFrom := []string{"postmaster", "alert",
-		"reply", "human", "praveen", "karthik", "reyansh", "indeedmail",
+		"reply", "human", "praveen", "karthik", "reyansh", "indeedapply",
+		"resume", "job-search", "huxley", "sandeep", "rahul", "jobs",
 		"@mail", "@talent", ".net", "notification", "alert", "mailer",
 		"marketing", "career", "talent", "messages.jobs", "notification",
 		"kelleyservices", "employment", "feedback", "notice", "talent",
 		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9", ".it",
 		"mohammed", ".ru", "::::", "consulting", "bounce", "marketing",
-		"solutions.com", ".it",
+		"solutions.com", ".it", "singh", "vastika",
 	}
 	rejectText := []string{"w2", "n.j.", "mohammad",
 		"impressed by the breath of your",
@@ -173,7 +174,10 @@ func EmailCount(from, snippet string) (int64, error) {
 	}
 	var COL = "aibotEmailCount"
 
-	dsnap, _ := fb.ReadMap(ctx, COL, from)
+	dsnap, err := fb.ReadMap(ctx, COL, from)
+	if err != nil {
+		return 0,err
+	}
 	result := dsnap.Data()
 	var count int64
 	if v, ok := result[from]; ok {

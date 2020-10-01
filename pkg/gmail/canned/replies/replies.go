@@ -91,36 +91,32 @@ company CWXSTAT INC.
 Remote contract work ONLY.
 
 Reaching an agreement, signing a contract, and coordinating work through
-CWXSTAT is the only purpose of these communications.  
+CWXSTAT is the purpose of these communications.   
 
-Average contract hourly rate is between $115/hr to $130/hr, payable in
-15 days.
+For your reference, average contract hourly rate is between $115/hr to 
+$130/hr, payable in 15 days.
 
-Video calls are preferred over just voice (Slack, Zoom, Skype etc.) so
-that diagrams can be shared, and technical ideas can be discussed. 
-Video calls may be recorded, archived, or processed with Machine Learning
-tools.
+Video calls are great and are preferred over just voice (Slack, Zoom, 
+Skype etc.) so that diagrams can be shared, and technical ideas can be 
+discussed. Are you okay with that? Video calls will be recorded so that
+we can refer to points made later.
 
-It is very important that you have direct knowledge of the position/work
-and requirements. If you are not the direct hiring manager, you or the
-party you represent, must have a verifiable contract with the hiring manager. 
+Please have direct knowledge of the position/work and requirements. If you 
+are not the direct hiring manager, can you or the party you represent, have 
+have that person present on the video call?  
 
-Under no circumstance may any information about CWXSTAT, or myself be
-represented, in any way, without specific prior written approval from me. 
-
-You are agreeing that you have a full understanding of the work needed,
-plus any and all terms used in the Job Description, or any communication
-about the work needed has been verified by you, and you stand by your work.
-
-Specifically, you have verified this position is currently open to a C2C
-contract.  
+So this is a little terse; but, under no circumstances may any information 
+about CWXSTAT, or myself be represented, in any form, without prior written 
+approval. Receiving a copy of a resume is NOT CONSENT to represent. Sorry, I
+need to make that clear -- recieving a copy of a resume is NOT CONSENT to
+represent. 
 
 
 Regards,
 
 Mike Chirico
 mc@cwxstat.com
-(215) 326-9389 (text only)
+(215) 326-9389 (text is quicker)
 https://www.linkedin.com/in/mikechirico
 
 1) Please be sure to include your LinkedIn account
