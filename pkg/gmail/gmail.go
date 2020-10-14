@@ -176,8 +176,10 @@ func EmailCount(from, snippet string) (int64, error) {
 
 	dsnap, err := fb.ReadMap(ctx, COL, from)
 	if err != nil {
-		return 0,err
+		// YES! you want to return nil
+		return 0,nil
 	}
+
 	result := dsnap.Data()
 	var count int64
 	if v, ok := result[from]; ok {
@@ -218,6 +220,7 @@ func StartWatch() (time.Time, error) {
 }
 
 func EmailEnough(r []map[string]string) bool {
+	log.Println("EmailEnough: ",r[0]["From"],r[0]["Snippet"])
 	count, err := EmailCount(r[0]["From"], r[0]["Snippet"])
 	if err != nil {
 		return true
