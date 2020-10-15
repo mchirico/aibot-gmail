@@ -17,6 +17,7 @@ deploy:
 	docker push gcr.io/mchirico/aibot:test
 	gcloud run deploy aibot  --image gcr.io/mchirico/aibot:test --platform managed \
             --allow-unauthenticated --project mchirico \
+            --vpc-connector=conn2 \
             --region us-east1 --port 3000 --max-instances 1  --memory 256Mi
 
 

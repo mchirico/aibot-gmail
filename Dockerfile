@@ -27,6 +27,8 @@ COPY --from=builder /workspace/project .
 
 
 COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
+COPY --from=builder --chown=nonroot:nonroot /workspace/certs /certs
+
 USER nonroot:nonroot
 
 ARG buildtime_variable

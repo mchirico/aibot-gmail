@@ -64,7 +64,8 @@ https://www.linkedin.com/in/mikechirico
 
 * Please include mobile phone number
 * Please include LinkedIn account
-`, `
+* NO PHONE CALLS - Video Calls Only
+  `, `
 
 Is this position 100% remote, and can this position work
 on a corp-to-corp contract? If truly remote, please 

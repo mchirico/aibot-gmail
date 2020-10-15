@@ -32,7 +32,7 @@ func TestAnalysis(t *testing.T) {
 
 func TestAnalysisFirebase(t *testing.T) {
 	now := time.Now()
-	m, _ := AnalysisFirebase(now.Add(-24 * 1 * time.Hour))
+	m, _ := AnalysisFirebase(now.Add(-24 * 2 * time.Hour))
 	s, _ := Filter2orMore(m)
 	good, _ := FilterJunkString(s)
 	t.Logf("result: %v\n", good)

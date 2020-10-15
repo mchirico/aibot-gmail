@@ -42,9 +42,13 @@ func TestFb(t *testing.T) {
 
 func TestEmailCountFB(t *testing.T) {
 	count, _ := EmailCount("garbo3", "snippet2")
-	if count <= 0 {
+	if count != 0 {
 		t.Fatalf("Fail")
 	}
+}
+
+func TestCheckDups(t *testing.T) {
+	//etcd.D()
 }
 
 func TestDomains(t *testing.T) {
@@ -61,7 +65,15 @@ func TestRunEmail(t *testing.T) {
 
 func TestSendReply(t *testing.T) {
 	ht := headertrack.NewSM()
-	SendReply(ht)
+	r, err := GetMessage(ht)
+	if err != nil {
+		lpmsg := LOOPMSG{}
+		lpmsg.Send1 = messages.ReplyAI
+		lpmsg.Send2 = messages.Send2
+
+		lpmsg.LoopMsg(r)
+	}
+
 }
 
 func TestMessages(t *testing.T) {

@@ -115,14 +115,16 @@ func RejectImmediate(from, snippet string) error {
 		"reply", "human", "praveen", "karthik", "reyansh", "indeedapply",
 		"resume", "job-search", "huxley", "sandeep", "rahul", "jobs",
 		"@mail", "@talent", ".net", "notification", "alert", "mailer",
+		"support",
 		"marketing", "career", "talent", "messages.jobs", "notification",
 		"kelleyservices", "employment", "feedback", "notice", "talent",
 		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9", ".it",
 		"mohammed", ".ru", "::::", "consulting", "bounce", "marketing",
-		"solutions.com", ".it", "singh", "vastika",
+		"solutions.com", ".it", "singh", "vastika", "solutioninc", "enterprise",
+		"bairesdev.com", "themuse.com", ".tech",
 	}
 	rejectText := []string{"w2", "n.j.", "mohammad",
-		"impressed by the breath of your",
+		"impressed by the breath of your", "hope you are doing well",
 		"application has been submitted!", "glassdoor",
 		"submitted on indeed", "we received your application",
 		"thank you for applying for the role", "searching for your dream job",
@@ -175,10 +177,6 @@ func EmailCount(from, snippet string) (int64, error) {
 	var COL = "aibotEmailCount"
 
 	dsnap, err := fb.ReadMap(ctx, COL, from)
-	if err != nil {
-		// YES! you want to return nil
-		return 0,nil
-	}
 
 	result := dsnap.Data()
 	var count int64
@@ -220,7 +218,7 @@ func StartWatch() (time.Time, error) {
 }
 
 func EmailEnough(r []map[string]string) bool {
-	log.Println("EmailEnough: ",r[0]["From"],r[0]["Snippet"])
+	log.Println("EmailEnough: ", r[0]["From"], r[0]["Snippet"])
 	count, err := EmailCount(r[0]["From"], r[0]["Snippet"])
 	if err != nil {
 		return true
@@ -240,11 +238,17 @@ type SR interface {
 	GetR(s ...headertrack.LabelCount) ([]map[string]string, error)
 }
 
-func SendReply(sr SR) {
+func GetMessage(sr SR) ([]map[string]string, error) {
 	r, err := sr.GetR()
-	if err != nil {
-		return
-	}
+	return r, err
+}
+
+type LOOPMSG struct {
+	Send1 func(replyID, msgID, from, to, subject, msg_to_send, AImsg string) (string, error)
+	Send2 func(to string, subject string, body string) error
+}
+
+func (lp LOOPMSG) LoopMsg(r []map[string]string) {
 
 	if EmailEnough(r) {
 		PostEmailEnough(r)
@@ -275,7 +279,7 @@ func SendReply(sr SR) {
 
 	fmt.Printf("\n\nSENDING!!!!\n\n")
 	msgID := r[id]["Message-ID"]
-	_, err = messages.ReplyAI(r[id]["Id"], msgID, "mc@cwxstat.com",
+	_, err := messages.ReplyAI(r[id]["Id"], msgID, "mc@cwxstat.com",
 		r[id]["From"], subject, msg, "contract")
 	if err != nil {
 		log.Printf("messages.ReplyAI err: %v\n"+
@@ -307,7 +311,7 @@ func RunEmail() {
 	var buf bytes.Buffer
 	m := map[int]bool{}
 	pub := &Pub{}
-	for i := 0; i < 4; i++ {
+	for i := 0; i < 1; i++ {
 
 		COUNT += 1
 		msg, n, err := g.PullMsgsTimeOut(&buf, "gmail-sub", 10)
@@ -325,7 +329,14 @@ func RunEmail() {
 		if _, ok := m[pub.HistoryId]; !ok {
 			m[pub.HistoryId] = true
 			fmt.Printf("Digest: %d\n", pub.HistoryId)
-			SendReply(ht)
+			r, err := GetMessage(ht)
+			if err != nil {
+				lpmsg := LOOPMSG{}
+				lpmsg.Send1 = messages.ReplyAI
+				lpmsg.Send2 = messages.Send2
+				lpmsg.LoopMsg(r)
+			}
+
 		} else {
 			fmt.Printf("Skipped: %d\n", pub.HistoryId)
 		}
