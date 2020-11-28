@@ -3,8 +3,10 @@ package handles
 import (
 	"encoding/json"
 	"fmt"
+	//"github.com/mchirico/aibot-gmail/pkg/etcd"
 	"github.com/mchirico/aibot-gmail/pkg/gmail"
 	"github.com/mchirico/aibot-gmail/pkg/gmail/headertrack"
+	"github.com/mchirico/go-gmail/mail/messages"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -21,6 +23,7 @@ func BaseRoot(w http.ResponseWriter, r *http.Request) {
 	switch r.Method {
 	case "GET":
 		Count += 1
+
 		msg := fmt.Sprintf("\nversion: %v\naibot: %v\n", version, Count)
 		w.Write([]byte(msg))
 	case "POST":
@@ -36,6 +39,7 @@ func Status(w http.ResponseWriter, r *http.Request) {
 
 	switch r.Method {
 	case "GET":
+		//etcd.D()
 		CountStatus += 1
 
 		//msg := fmt.Sprintf("\nstatus: %v\naibot: %v\n", Count, CountStatus)
@@ -90,7 +94,14 @@ func Subscript(w http.ResponseWriter, r *http.Request) {
 		data := string(m.Message.Data)
 		log.Printf("Running %s!", data)
 		sm := headertrack.NewSM()
-		gmail.SendReply(sm)
+		r, err := gmail.GetMessage(sm)
+		if err != nil {
+			lpmsg := gmail.LOOPMSG{}
+			lpmsg.Send1 = messages.ReplyAI
+			lpmsg.Send2 = messages.Send2
+			lpmsg.LoopMsg(r)
+
+		}
 
 	}
 

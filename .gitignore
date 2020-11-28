@@ -40,3 +40,8 @@ Notes
 .credentials/**/*.json
 credentials/**/*.json
 
+.certs/
+certs/
+
+
+
