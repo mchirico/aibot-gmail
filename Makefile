@@ -1,6 +1,6 @@
 
 docker-build:
-	docker build --build-arg buildtime_variable=${GITHUB_TOKEN} --build-arg webhook=${GITHUB_WEBHOOK_SECRET} --no-cache -t gcr.io/mchirico/aibot:test -f Dockerfile .
+	docker build --build-arg build_task_key=${TASK_KEY} --build-arg buildtime_variable=${GITHUB_TOKEN} --build-arg webhook=${GITHUB_WEBHOOK_SECRET} --no-cache -t gcr.io/mchirico/aibot:test -f Dockerfile .
 
 push:
 	docker push gcr.io/mchirico/aibot:test
@@ -13,7 +13,7 @@ run:
 
 
 deploy:
-	docker build --build-arg buildtime_variable=${GITHUB_TOKEN} --build-arg webhook=${GITHUB_WEBHOOK_SECRET} --build-arg pubsubtoken=${PUBSUBTOKEN} --no-cache -t gcr.io/mchirico/aibot:test -f Dockerfile .
+	docker build --build-arg build_task_key=${TASK_KEY} --build-arg buildtime_variable=${GITHUB_TOKEN} --build-arg webhook=${GITHUB_WEBHOOK_SECRET} --build-arg pubsubtoken=${PUBSUBTOKEN} --no-cache -t gcr.io/mchirico/aibot:test -f Dockerfile .
 	docker push gcr.io/mchirico/aibot:test
 	gcloud run deploy aibot  --image gcr.io/mchirico/aibot:test --platform managed \
             --allow-unauthenticated --project mchirico \

@@ -30,7 +30,7 @@ COPY --from=builder /workspace/pkg/etcdserver/server .
 
 COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
 COPY --from=builder --chown=nonroot:nonroot /workspace/certs /certs
-COPY --from=builder --chown=nonroot:nonroot /workspace/sock /sock
+
 
 USER nonroot:nonroot
 
@@ -42,5 +42,10 @@ ENV GITHUB_WEBHOOK_SECRET=$webhook
 
 ARG pubsubtoken
 ENV PUBSUBTOKEN=$pubsubtoken
+
+ARG build_task_key
+ENV TASK_KEY=$build_task_key
+
+
 
 ENTRYPOINT ["/project"]
