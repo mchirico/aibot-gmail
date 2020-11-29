@@ -9,6 +9,8 @@ import (
 	"net"
 )
 
+const SockAddr = "/sock/echo.sock"
+
 func Reader(r io.Reader) {
 	buf := make([]byte, 1024)
 	for {
@@ -21,7 +23,7 @@ func Reader(r io.Reader) {
 }
 
 func Client(msg string) {
-	c, err := net.Dial("unix", "/tmp/echo.sock")
+	c, err := net.Dial("unix", SockAddr)
 	if err != nil {
 		log.Printf("err: %s\n", err)
 	}

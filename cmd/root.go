@@ -17,7 +17,6 @@ package cmd
 
 import (
 	"fmt"
-	"github.com/mchirico/aibot-gmail/pkg/exec/startup"
 	"github.com/mchirico/aibot-gmail/pkg/http"
 	homedir "github.com/mitchellh/go-homedir"
 	"github.com/spf13/cobra"
@@ -40,7 +39,8 @@ to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
-		go startup.Start()
+		//go startup.Start()
+		//time.Sleep(2 * time.Second)
 		http.Server()
 	},
 }
