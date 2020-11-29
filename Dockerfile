@@ -30,6 +30,7 @@ COPY --from=builder /workspace/pkg/etcdserver/server .
 
 COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
 COPY --from=builder --chown=nonroot:nonroot /workspace/certs /certs
+COPY --from=builder --chown=nonroot:nonroot /workspace/sock /sock
 
 USER nonroot:nonroot
 

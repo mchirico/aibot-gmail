@@ -3,7 +3,6 @@ package startup
 import (
 	"log"
 	"os/exec"
-	"time"
 )
 
 func Start() {
@@ -11,8 +10,8 @@ func Start() {
 		cmd := exec.Command("/server")
 		log.Printf("Running etcd")
 		err := cmd.Run()
-		log.Printf("Command finished with error: %v", err)
-		time.Sleep(120 * time.Second)
+		log.Printf("Start exited: %v", err)
+		log.Printf("looping...\n\n")
 
 	}
 
