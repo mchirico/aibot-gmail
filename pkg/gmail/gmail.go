@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"github.com/mchirico/aibot-gmail/pkg/gmail/canned/replies"
 	"github.com/mchirico/aibot-gmail/pkg/gmail/headertrack"
+	"github.com/mchirico/aibot-gmail/pkg/log/remote"
 	gfb "github.com/mchirico/go-firebase/pkg/gofirebase"
 	"github.com/mchirico/go-gmail/mail/messages"
 	"github.com/mchirico/go-pubsub/pubsub"
@@ -250,14 +251,14 @@ type LOOPMSG struct {
 
 func (lp LOOPMSG) LoopMsg(r []map[string]string) {
 
-	//if len(r) >= 1 {
-	//	if result, ok := r[0]["From"]; ok {
-	//		socket.Client(result)
-	//	}
-	//	if result, ok := r[0]["from"]; ok {
-	//		socket.Client(result)
-	//	}
-	//}
+	if len(r) >= 1 {
+		if result, ok := r[0]["From"]; ok {
+			remote.Log(result, "LoopMsg")
+		}
+		if result, ok := r[0]["from"]; ok {
+			remote.Log(result, "LoopMsg")
+		}
+	}
 
 	if EmailEnough(r) {
 		PostEmailEnough(r)
