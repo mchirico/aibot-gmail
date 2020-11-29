@@ -66,7 +66,7 @@ func TestRunEmail(t *testing.T) {
 func TestSendReply(t *testing.T) {
 	ht := headertrack.NewSM()
 	r, err := GetMessage(ht)
-	if err != nil {
+	if err == nil {
 		lpmsg := LOOPMSG{}
 		lpmsg.Send1 = messages.ReplyAI
 		lpmsg.Send2 = messages.Send2

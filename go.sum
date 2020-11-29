@@ -228,6 +228,8 @@ github.com/mattn/go-colorable v0.0.9/go.mod h1:9vuHe8Xs5qXnSaW/c/ABM9alt+Vo+STaO
 github.com/mattn/go-isatty v0.0.3/go.mod h1:M+lRXTBqGeGNdLjl/ufCoiOlB5xdOkqRJdNxMWT7Zi4=
 github.com/matttproud/golang_protobuf_extensions v1.0.1 h1:4hp9jkHxhMHkqkrB3Ix0jegS5sx/RkqARlsWZ6pIwiU=
 github.com/matttproud/golang_protobuf_extensions v1.0.1/go.mod h1:D8He9yQNgCq6Z5Ld7szi9bcBfOoFv/3dc6xSMkL2PC0=
+github.com/mchirico/aibot-etcd v0.0.0-20201129000403-36dbe7c80988 h1:WNGqN9bNORfP7I17rXz2m12zTjniCaD0D0rM1FJW/UI=
+github.com/mchirico/aibot-etcd v0.0.0-20201129000403-36dbe7c80988/go.mod h1:PicyPGP1SfQITvNQIv+gKkqvUotRsQNcb86Ru2Dm+vM=
 github.com/mchirico/date v0.0.2 h1:1LQDzZUM0YskxnKKdFoeBAZ95aqcTc6kR5kQTqbt83Q=
 github.com/mchirico/date v0.0.2/go.mod h1:41+BQE+ALbJMUVcKAMdum0uZrQdQ4zTHm828xK3s0uE=
 github.com/mchirico/go-firebase v1.0.8 h1:6S6eU1VQDfP/6qpWBl+M6uPa745C0PctyUTwQ0Rqy+0=

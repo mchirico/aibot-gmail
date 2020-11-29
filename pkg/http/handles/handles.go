@@ -95,7 +95,7 @@ func Subscript(w http.ResponseWriter, r *http.Request) {
 		log.Printf("Running %s!", data)
 		sm := headertrack.NewSM()
 		r, err := gmail.GetMessage(sm)
-		if err != nil {
+		if err == nil {
 			lpmsg := gmail.LOOPMSG{}
 			lpmsg.Send1 = messages.ReplyAI
 			lpmsg.Send2 = messages.Send2

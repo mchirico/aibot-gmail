@@ -1,7 +1,9 @@
 package main
 
 import (
-	"github.com/mchirico/aibot-gmail/pkg/etcd"
+	d "github.com/mchirico/aibot-etcd"
+
+
 	"log"
 	"net"
 	"os"
@@ -11,19 +13,17 @@ const SockAddr = "/tmp/echo.sock"
 
 func echoServer(c net.Conn) {
 	for {
-		buf := make([]byte, 512)
+		buf := make([]byte, 1024)
 		nr, err := c.Read(buf)
 		if err != nil {
 			return
 		}
 
 		data := buf[0:nr]
+		log.Printf("data: %v\n",data)
 		println("Server got:", string(data))
-		etcd.D(string(data))
-		_, err = c.Write(data)
-		if err != nil {
-			log.Fatal("Write: ", err)
-		}
+		d.D(string(data))
+
 	}
 }
 

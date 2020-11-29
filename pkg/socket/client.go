@@ -23,7 +23,7 @@ func Reader(r io.Reader) {
 func Client(msg string) {
 	c, err := net.Dial("unix", "/tmp/echo.sock")
 	if err != nil {
-		panic(err)
+		log.Printf("err: %s\n", err)
 	}
 	defer c.Close()
 
