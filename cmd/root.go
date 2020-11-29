@@ -17,12 +17,12 @@ package cmd
 
 import (
 	"fmt"
+	"github.com/mchirico/aibot-gmail/pkg/exec/startup"
 	"github.com/mchirico/aibot-gmail/pkg/http"
-	"github.com/spf13/cobra"
-	"os"
-
 	homedir "github.com/mitchellh/go-homedir"
+	"github.com/spf13/cobra"
 	"github.com/spf13/viper"
+	"os"
 )
 
 var cfgFile string
@@ -40,6 +40,7 @@ to quickly create a Cobra application.`,
 	// Uncomment the following line if your bare application
 	// has an action associated with it:
 	Run: func(cmd *cobra.Command, args []string) {
+		go startup.Start()
 		http.Server()
 	},
 }

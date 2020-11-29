@@ -8,7 +8,7 @@ import (
 
 func Start() {
 	for {
-		cmd := exec.Command("/project", "etcd")
+		cmd := exec.Command("/server")
 		log.Printf("Running etcd")
 		err := cmd.Run()
 		log.Printf("Command finished with error: %v", err)
