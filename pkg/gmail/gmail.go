@@ -32,6 +32,17 @@ func Lables() {
 	messages.Labels()
 }
 
+
+func Delete(labelID string) int64 {
+	count, err := messages.Delete(labelID)
+	if err != nil {
+		log.Printf("err: %v\n",err)
+	}
+	return count
+
+}
+
+
 func Domains(number_to_check int, doc string) (map[string]interface{}, error) {
 
 	ctx, cancel := context.WithCancel(context.Background())
@@ -249,6 +260,23 @@ type LOOPMSG struct {
 	Send2 func(to string, subject string, body string) error
 }
 
+func EctDHttpCatalog(r []map[string]string) {
+	if len(r) >= 1 {
+		if result, ok := r[0]["From"]; ok {
+			json := fmt.Sprintf("{subject: %q, snippet: %q, from: \"capitalized\"}",
+				r[0]["Subject"], r[0]["Snippet"])
+			remote.Log(result, json)
+			return
+		}
+		if result, ok := r[0]["from"]; ok {
+			json := fmt.Sprintf("{subject: %q, snippet: %q, from: \"lower\"}",
+				r[0]["Subject"], r[0]["Snippet"])
+			remote.Log(result, json)
+		}
+		return
+	}
+}
+
 func (lp LOOPMSG) LoopMsg(r []map[string]string) {
 
 	if EmailEnough(r) {
@@ -256,19 +284,7 @@ func (lp LOOPMSG) LoopMsg(r []map[string]string) {
 		return
 	}
 
-	if len(r) >= 1 {
-		if result, ok := r[0]["From"]; ok {
-			json := fmt.Sprintf("{subject: %q, snippet: %q}",
-				r[0]["Subject"], r[0]["Snippet"])
-			remote.Log(result, json)
-		} else {
-			if result, ok := r[0]["from"]; ok {
-				json := fmt.Sprintf("{subject: %q, snippet: %q}",
-					r[0]["Subject"], r[0]["Snippet"])
-				remote.Log(result, json)
-			}
-		}
-	}
+	EctDHttpCatalog(r)
 
 	id := 0
 
