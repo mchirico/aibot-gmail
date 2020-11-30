@@ -76,27 +76,40 @@ func TestSendReply(t *testing.T) {
 
 }
 
+func TestDelete(t *testing.T) {
+	// This is dead account
+	count := Delete("SPAM")
+	t.Logf("deleted: %d\n",count)
+}
+
+
 func TestMessages(t *testing.T) {
 
 	r, _ := messages.GetNewMessages("SENT", 4)
 	for _, m := range r {
 		if date, ok := m["Date"]; ok {
-			s := string(date)
-			//layout := "Mon, _2 Jan 2006 15:04:05 -0700"
-			tt, err := parse.DateTimeParse(s).GetTime()
-			if err != nil {
-				fmt.Printf("err: %v\n", err)
-				return
-			}
-			loc, err := time.LoadLocation("America/New_York")
-			if err != nil {
-				t.Fatal()
-			}
-			fmt.Printf("tt>: %v\n", tt.In(loc).Format("2006-01-02 15:04:05 pm"))
-			fmt.Printf("tt: %v\n", time.Now().In(loc).Format("2006-01-02 15:04:05 pm"))
 
-			fmt.Println(time.Now().Unix())
-			fmt.Println(date)
+			if subject, ok := m["Subject"]; ok {
+
+				s := string(date)
+				//layout := "Mon, _2 Jan 2006 15:04:05 -0700"
+				tt, err := parse.DateTimeParse(s).GetTime()
+				if err != nil {
+					fmt.Printf("err: %v\n", err)
+					return
+				}
+				loc, err := time.LoadLocation("America/New_York")
+				if err != nil {
+					t.Fatal()
+				}
+				fmt.Printf("tt>: %v\n", tt.In(loc).Format("2006-01-02 15:04:05 pm"))
+				fmt.Printf("tt: %v\n", time.Now().In(loc).Format("2006-01-02 15:04:05 pm"))
+
+				fmt.Println(time.Now().Unix())
+				fmt.Println(date)
+				fmt.Printf("subject:%s\n",subject)
+
+			}
 		}
 
 	}

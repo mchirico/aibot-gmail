@@ -4,12 +4,10 @@ go 1.15
 
 require (
 	github.com/magiconair/properties v1.8.3 // indirect
-	github.com/mchirico/aibot-etcd v0.0.0-20201129000403-36dbe7c80988 // indirect
 	github.com/mchirico/date v0.0.2
 	github.com/mchirico/go-firebase v1.0.8
-	github.com/mchirico/go-gmail v0.2.2
+	github.com/mchirico/go-gmail v0.2.3
 	github.com/mchirico/go-pubsub v0.0.2
-	github.com/mchirico/go.etcd v0.0.11
 	github.com/mitchellh/go-homedir v1.1.0
 	github.com/pelletier/go-toml v1.8.1 // indirect
 	github.com/spf13/afero v1.4.0 // indirect
