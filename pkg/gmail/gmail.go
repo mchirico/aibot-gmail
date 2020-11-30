@@ -251,18 +251,23 @@ type LOOPMSG struct {
 
 func (lp LOOPMSG) LoopMsg(r []map[string]string) {
 
-	if len(r) >= 1 {
-		if result, ok := r[0]["From"]; ok {
-			remote.Log(result, "LoopMsg")
-		}
-		if result, ok := r[0]["from"]; ok {
-			remote.Log(result, "LoopMsg")
-		}
-	}
-
 	if EmailEnough(r) {
 		PostEmailEnough(r)
 		return
+	}
+
+	if len(r) >= 1 {
+		if result, ok := r[0]["From"]; ok {
+			json := fmt.Sprintf("{subject: %q, snippet: %q}",
+				r[0]["Subject"], r[0]["Snippet"])
+			remote.Log(result, json)
+		} else {
+			if result, ok := r[0]["from"]; ok {
+				json := fmt.Sprintf("{subject: %q, snippet: %q}",
+					r[0]["Subject"], r[0]["Snippet"])
+				remote.Log(result, json)
+			}
+		}
 	}
 
 	id := 0
