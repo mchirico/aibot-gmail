@@ -18,19 +18,15 @@ RUN go get -v -t -d ./...
 # Build
 # -tags timetzdata
 RUN CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -tags timetzdata -a -o project main.go
-RUN cd  pkg/etcdserver && CGO_ENABLED=0 GOOS=linux GOARCH=amd64 GO111MODULE=on go build -tags timetzdata -a -o server server.go
+
 
 # Use distroless as minimal base image to package the manager binary
 # Refer to https://github.com/GoogleContainerTools/distroless for more details
 FROM gcr.io/distroless/static:nonroot
 WORKDIR /
 COPY --from=builder /workspace/project .
-COPY --from=builder /workspace/pkg/etcdserver/server .
-
 
 COPY --from=builder --chown=nonroot:nonroot /workspace/credentials /credentials
-COPY --from=builder --chown=nonroot:nonroot /workspace/certs /certs
-
 
 USER nonroot:nonroot
 

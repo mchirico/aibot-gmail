@@ -262,18 +262,13 @@ type LOOPMSG struct {
 
 func EctDHttpCatalog(r []map[string]string) {
 	if len(r) >= 1 {
-		if result, ok := r[0]["From"]; ok {
-			json := fmt.Sprintf("{subject: %q, snippet: %q, from: \"capitalized\"}",
-				r[0]["Subject"], r[0]["Snippet"])
+		if result, ok := r[0]["Return-Path"]; ok {
+			json := fmt.Sprintf("{subject: %q, snippet: %q, version: \"0.0.1\"," +
+				"return-path: %q, from: %q}",
+				r[0]["Subject"], r[0]["Snippet"],result,r[0]["From"])
 			remote.Log(result, json)
 			return
 		}
-		if result, ok := r[0]["from"]; ok {
-			json := fmt.Sprintf("{subject: %q, snippet: %q, from: \"lower\"}",
-				r[0]["Subject"], r[0]["Snippet"])
-			remote.Log(result, json)
-		}
-		return
 	}
 }
 
