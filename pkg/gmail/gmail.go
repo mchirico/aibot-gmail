@@ -127,7 +127,7 @@ func RejectImmediate(from, snippet string) error {
 		"reply", "human", "praveen", "karthik", "reyansh", "indeedapply",
 		"resume", "job-search", "huxley", "sandeep", "rahul", "jobs",
 		"@mail", "@talent", ".net", "notification", "alert", "mailer",
-		"support",
+		"support","linkedin.com",
 		"marketing", "career", "talent", "messages.jobs", "notification",
 		"kelleyservices", "employment", "feedback", "notice", "talent",
 		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9", ".it",
