@@ -54,6 +54,11 @@ your time and my time. Reaching an agreement, signing
 a contract, and coordinating work to solve your particular
 requirement(s), is the only purpose of these communications.
 
+Security and verification is important to me and the people
+I work with.  Please understand this, and give me the resources
+to verify who you are, as I only work with trusted clients.
+
+
 
 Regards,
 
@@ -63,8 +68,8 @@ mc@cwxstat.com
 https://www.linkedin.com/in/mikechirico
 
 * Please include mobile phone number
-* Please include LinkedIn account
-* NO PHONE CALLS - Video Calls Only
+* Please include LinkedIn account (with photo)
+* NO PHONE CALLS - Video Calls Only 
   `, `
 
 Is this position 100% remote, and can this position work
@@ -117,7 +122,7 @@ Regards,
 
 Mike Chirico
 mc@cwxstat.com
-(215) 326-9389 (text is quicker)
+(215) 326-9389 (text only, for verification)
 https://www.linkedin.com/in/mikechirico
 
 1) Please be sure to include your LinkedIn account
