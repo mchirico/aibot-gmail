@@ -32,16 +32,14 @@ func Lables() {
 	messages.Labels()
 }
 
-
 func Delete(labelID string) int64 {
 	count, err := messages.Delete(labelID)
 	if err != nil {
-		log.Printf("err: %v\n",err)
+		log.Printf("err: %v\n", err)
 	}
 	return count
 
 }
-
 
 func Domains(number_to_check int, doc string) (map[string]interface{}, error) {
 
@@ -127,7 +125,7 @@ func RejectImmediate(from, snippet string) error {
 		"reply", "human", "praveen", "karthik", "reyansh", "indeedapply",
 		"resume", "job-search", "huxley", "sandeep", "rahul", "jobs",
 		"@mail", "@talent", ".net", "notification", "alert", "mailer",
-		"support","linkedin.com",
+		"support", "linkedin.com", "inc.com",".in",".au",
 		"marketing", "career", "talent", "messages.jobs", "notification",
 		"kelleyservices", "employment", "feedback", "notice", "talent",
 		"recruiting", "info", "3", "4", "5", "6", "7", "8", "9", ".it",
@@ -143,7 +141,9 @@ func RejectImmediate(from, snippet string) error {
 		"dear candidate", "my client is actively looking",
 		"due to our end client, candidates", "houston", "texas",
 		"huxley associates", "Unfortunately", "thank you so much",
-		"reason you are seeking a new opportunity", "employers are noticing you"}
+		"reason you are seeking a new opportunity", "employers are noticing you",
+		"a leading IT staffing organization", "to be a successful in this role",
+		"Last 4 digits of SSN"}
 
 	for _, v := range rejectFrom {
 		if strings.Contains(f, v) {
@@ -263,9 +263,9 @@ type LOOPMSG struct {
 func EctDHttpCatalog(r []map[string]string) {
 	if len(r) >= 1 {
 		if result, ok := r[0]["Return-Path"]; ok {
-			json := fmt.Sprintf("{subject: %q, snippet: %q, version: \"0.0.1\"," +
+			json := fmt.Sprintf("{subject: %q, snippet: %q, version: \"0.0.1\","+
 				"return-path: %q, from: %q}",
-				r[0]["Subject"], r[0]["Snippet"],result,r[0]["From"])
+				r[0]["Subject"], r[0]["Snippet"], result, r[0]["From"])
 			remote.Log(result, json)
 			return
 		}
