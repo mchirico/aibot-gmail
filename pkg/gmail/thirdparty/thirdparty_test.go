@@ -10,7 +10,6 @@ import (
 func Test(t *testing.T) {
 	ht := headertrack.NewSM()
 	r, err := gmail.GetMessage(ht)
-	fmt.Println(r,err)
-
+	fmt.Println(r, err)
 
 }
