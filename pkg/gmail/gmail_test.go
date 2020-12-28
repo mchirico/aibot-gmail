@@ -79,9 +79,8 @@ func TestSendReply(t *testing.T) {
 func TestDelete(t *testing.T) {
 	// This is dead account
 	count := Delete("SPAM")
-	t.Logf("deleted: %d\n",count)
+	t.Logf("deleted: %d\n", count)
 }
-
 
 func TestMessages(t *testing.T) {
 
@@ -107,7 +106,7 @@ func TestMessages(t *testing.T) {
 
 				fmt.Println(time.Now().Unix())
 				fmt.Println(date)
-				fmt.Printf("subject:%s\n",subject)
+				fmt.Printf("subject:%s\n", subject)
 
 			}
 		}

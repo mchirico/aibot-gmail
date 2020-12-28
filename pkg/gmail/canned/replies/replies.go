@@ -42,7 +42,8 @@ Please include your LinkedIn account. I'll attach a
 more detailed work history, via LinkedIn messaging, if
 it makes sense to move-to-the-next step.
 
-I'll wait for your confirmation on these points. 
+I'll wait for your confirmation on these points.
+We cannot go further until I get this confirmation.
 
 Please don't forget to include your LinkedIn account,
 as we've never met, and I'd like to confirm who
@@ -57,6 +58,9 @@ requirement(s), is the only purpose of these communications.
 Security and verification is important to me and the people
 I work with.  Please understand this, and give me the resources
 to verify who you are, as I only work with trusted clients.
+
+NO PHONE CALLS - must have access to zoom/slack/teams with video.
+Please make sure to activate your video.  
 
 
 
